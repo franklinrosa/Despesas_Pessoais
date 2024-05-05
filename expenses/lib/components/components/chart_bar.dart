@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class ChartBar extends StatelessWidget {
   final String? label;
@@ -16,7 +17,11 @@ class ChartBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text('R\$${value!.toStringAsFixed(2)}'),
+        FittedBox(
+          child: Text(
+            value!.toStringAsFixed(2),
+          ),
+        ),
         const SizedBox(height: 5),
         SizedBox(
           height: 60,
@@ -38,7 +43,8 @@ class ChartBar extends StatelessWidget {
                 heightFactor: percentage,
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Theme.of(context).colorScheme.primary,
+                    //color: Theme.of(context).colorScheme.primary,
+                    color: Colors.deepPurpleAccent,
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),

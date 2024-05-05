@@ -46,6 +46,7 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     groupedTransactions;
     return Card(
+      elevation: 4,
       margin: const EdgeInsets.all(7),
       child: Padding(
         padding: const EdgeInsets.all(7),

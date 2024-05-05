@@ -27,7 +27,7 @@ class ExpensesApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
           brightness: Brightness.dark,
-        ).copyWith(background: Colors.grey[850]!),
+        ).copyWith(background: Colors.grey[800]!),
       ),
       /* theme: tema.copyWith(
         
