@@ -44,71 +44,77 @@ class _TransactionFormState extends State<TransactionForm> {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: [
-            TextField(
-              controller: _titleController,
-              onSubmitted: (_) => _submitForm,
-              decoration: const InputDecoration(
-                labelText: "Título",
+    return SingleChildScrollView(
+      child: Card(
+        elevation: 5,
+        child: Padding(
+          padding: EdgeInsets.only(
+              top: 10,
+              right: 10,
+              left: 10,
+              bottom: 10 + MediaQuery.of(context).viewInsets.bottom),
+          child: Column(
+            children: [
+              TextField(
+                controller: _titleController,
+                onSubmitted: (_) => _submitForm,
+                decoration: const InputDecoration(
+                  labelText: "Título",
+                ),
               ),
-            ),
-            TextField(
-              controller: _valueController,
-              keyboardType:
-                  //teclado numerico para IOs não aparece as opções, por isso esse widget
-                  const TextInputType.numberWithOptions(decimal: true),
-              onSubmitted: (_) => _submitForm,
-              decoration: const InputDecoration(
-                labelText: "Valor (R\$)",
+              TextField(
+                controller: _valueController,
+                keyboardType:
+                    //teclado numerico para IOs não aparece as opções, por isso esse widget
+                    const TextInputType.numberWithOptions(decimal: true),
+                onSubmitted: (_) => _submitForm,
+                decoration: const InputDecoration(
+                  labelText: "Valor (R\$)",
+                ),
               ),
-            ),
-            SizedBox(
-              height: 70,
-              child: Row(
+              SizedBox(
+                height: 70,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Text(
+                        _selectedDate == null
+                            ? 'Nenhuma Data selecionada!'
+                            : 'Data Selecionada: ${DateFormat('dd/MM/y').format(_selectedDate!)}',
+                      ),
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        foregroundColor: Colors.deepPurple,
+                      ),
+                      onPressed: _showDatePicker,
+                      child: const Text(
+                        'Selecionar Data',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  Expanded(
-                    child: Text(
-                      _selectedDate == null
-                          ? 'Nenhuma Data selecionada!'
-                          : 'Data Selecionada: ${DateFormat('dd/MM/y').format(_selectedDate!)}',
-                    ),
-                  ),
-                  TextButton(
-                    style: TextButton.styleFrom(
-                      foregroundColor: Colors.deepPurple,
-                    ),
-                    onPressed: _showDatePicker,
+                  ElevatedButton(
+                    onPressed: _submitForm,
                     child: const Text(
-                      'Selecionar Data',
+                      "Nova Transação",
+                      //selectionColor: Colors.purple,
                       style: TextStyle(
-                        fontWeight: FontWeight.bold,
+                        color: Colors.deepPurpleAccent,
                       ),
                     ),
                   ),
                 ],
               ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                ElevatedButton(
-                  onPressed: _submitForm,
-                  child: const Text(
-                    "Nova Transação",
-                    //selectionColor: Colors.purple,
-                    style: TextStyle(
-                      color: Colors.deepPurpleAccent,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
