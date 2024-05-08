@@ -1,13 +1,13 @@
 import 'dart:io';
 
 import 'package:expenses/components/components/chart.dart';
-import 'package:expenses/components/transaction_form.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'components/transaction_list.dart';
 import 'models/transaction.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:expenses/components/components/transaction_form.dart';
+import 'package:expenses/components/components/transaction_list.dart';
 
 void main() => runApp(ExpensesApp());
 
