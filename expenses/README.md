@@ -1,15 +1,20 @@
-# expenses
+# DESPESAS PESSOAIS
 
-A new Flutter project.
+Um App em Flutter, responsivo e adaptativo, Android e IOs.
 
-## Getting Started
+## Descrição
 
-This project is a starting point for a Flutter application.
+O projeto faz parte de um estudo de diversos Widgets,   
+Cada componente se adapta a diferentes telas, alguns dos componentes estudados:
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Inclusão de Dependências
+- Formatação de Datas em BR
+- Material 3, Design Dark
+- Listas
+- Gráficos, Desenhados cada componente
+- Acréscimo de Fontes ttf
+- Uso de Cards
+- Comunicação entre formulários
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
