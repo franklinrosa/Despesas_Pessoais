@@ -1,13 +1,12 @@
 import 'dart:io';
-
-import 'package:expenses/components/components/chart.dart';
+import 'package:expenses/components/chart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'models/transaction.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:expenses/components/components/transaction_form.dart';
-import 'package:expenses/components/components/transaction_list.dart';
+import 'package:expenses/components/transaction_form.dart';
+import 'package:expenses/components/transaction_list.dart';
 
 void main() => runApp(ExpensesApp());
 
@@ -51,9 +50,25 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends State<MyHomePage> with WidgetsBindingObserver {
   final List<Transaction> _transactions = [];
   bool _showChart = false;
+
+  void initStadddddte() {
+    super.initState();
+    WidgetsBinding.instance.addObserver(this);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    WidgetsBinding.instance.removeObserver(this);
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    //   print(state);
+  }
 
   List<Transaction> get _recentTransactions {
     return _transactions.where((tr) {

@@ -11,38 +11,52 @@ class TransactionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return transactions.isEmpty
-        ? LayoutBuilder(builder: (ctx, constraints) {
-            return Column(
-              children: [
-                SizedBox(
-                  height: constraints.maxHeight * 0.05,
-                ),
-                SizedBox(
-                  height: constraints.maxHeight * 0.07,
-                  child: Text(
-                    'Nenhuma Transação!',
-                    style: Theme.of(context).textTheme.titleMedium,
+        ? LayoutBuilder(
+            builder: (ctx, constraints) {
+              return Column(
+                children: [
+                  SizedBox(
+                    height: constraints.maxHeight * 0.05,
                   ),
-                ),
-                SizedBox(
-                  height: constraints.maxHeight * 0.02,
-                ),
-                SizedBox(
-                  height: constraints.maxHeight * 0.6,
-                  child: Image.asset(
-                    'assets/money.png',
-                    fit: BoxFit.cover,
+                  SizedBox(
+                    height: constraints.maxHeight * 0.07,
+                    child: Text(
+                      'Nenhuma Transação!',
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
                   ),
-                ),
-              ],
-            );
-          })
+                  SizedBox(
+                    height: constraints.maxHeight * 0.02,
+                  ),
+                  SizedBox(
+                    height: constraints.maxHeight * 0.6,
+                    child: Image.asset(
+                      'assets/money.png',
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
+              );
+            },
+          )
+        //)
         : ListView.builder(
             itemCount: transactions.length,
             itemBuilder: (ctx, index) {
               final tr = transactions[index];
-              return TransactionItem(tr: tr, onRemove: onRemove);
+              return TransactionItem(
+                key: GlobalObjectKey(tr),
+                tr: tr,
+                onRemove: onRemove,
+              );
             },
           );
+    //ListView.builder(
+    //     itemCount: transactions.length,
+    //     itemBuilder: (ctx, index) {
+    //       final tr = transactions[index];
+    //       return TransactionItem(tr: tr, onRemove: onRemove);
+    //     },
+    //   );
   }
 }
