@@ -16,6 +16,10 @@ Cada componente se adapta a diferentes telas, alguns dos componentes estudados:
 - Uso de Cards
 - Comunicação entre formulários
 
+![] (assets\expenses1.jpg)
+![] (assets\expenses2.jpg)
+![] (assets\expenses3.jpg)
+
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
